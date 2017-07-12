@@ -1,0 +1,13 @@
+RewriteRule ^category$ index.php?pagetype=1 [L,QSA]
+RewriteRule ^items/([0-9]+)_([a-zA-Z0-9]{5})/([a-zA-Z0-9-_]+)\.html$ single.php?id=$1&token=$2&title=$3 [L,QSA]
+RewriteRule ^search/([a-zA-Z0-9-_]+)\.html$ query.php?product=$1 [L,QSA]
+RewriteRule ^search$ query.php [L,QSA]
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
