@@ -135,7 +135,7 @@ if(isset($resultdata['category']) && !empty($resultdata['category'])){
             </div>
             <div class="info-grid font-updated">
             	<span>Start Sale :</span> <?php echo date('c');?> </div>
-            <span class="font-ketoko" itemprop="ingredients" href="tel:+00000"><?php echo $_GET['id'];?></span>
+            <span class="font-ketoko" itemprop="ingredients" href="tel:+00"><?php echo $_GET['id'];?></span>
 <div class="amp-thesahe">
 <amp-social-share type="facebook" onclick="sharesocial('facebook'); return false;"  width="55" height="30" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined amp-social-share-facebook i-amphtml-layout" style="width: 55px; height: 30px;" role="link"></amp-social-share>
 <amp-social-share type="twitter" onclick="sharesocial('twitter'); return false;" width="55" height="30" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined amp-social-share-twitter i-amphtml-layout" style="width: 55px; height: 30px;" role="link"></amp-social-share>
@@ -149,11 +149,21 @@ if(isset($resultdata['category']) && !empty($resultdata['category'])){
 <div class="product-info"><div class="product-title">Product Info</div><div class="product-content" itemprop="recipeInstructions" id="prod_deskripsi"><?php echo $resultdata['specifics'];?></div></div>
 
 <div class="product-info"><div class="product-title">Product Related Search</div><div class="product-content" itemprop="recipeInstructions" id="prod_deskripsi">
+
+
+  <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    Average rating: <span itemprop="ratingValue"><?php echo(mt_rand(4,5));
+?></span>, based on
+    <span itemprop="ratingCount"><?php echo(mt_rand(100,10000));
+?></span> reviews
+  </span>
+  
 <?php 
 if(isset($resultdata['seosearch'])){
 	if(!empty($resultdata['seosearch'])){
 foreach($resultdata['seosearch'] as $thit){
-	$ftr[]= '<a href="/search/'.fixslug($thit).'.html">'.$thit.'</a>';
+	//$ftr[]= '<a href="/search/'.fixslug($thit).'.html">'.$thit.'</a>';
+	$ftr[]= $thit;
 }
 	echo implode(' , ', $ftr);
 	}
